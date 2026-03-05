@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NextPick</title>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f4f0ff;
+text-align:center;
+margin:0;
+animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+header{
+background:linear-gradient(135deg,#6a0dad,#8a2be2);
+color:white;
+padding:20px;
+}
+
+nav{
+background:#8a2be2;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+padding:8px 15px;
+border-radius:20px;
+transition:0.3s;
+}
+
+nav a:hover{
+background:white;
+color:#6a0dad;
+}
+
+section{
+padding:20px;
+background:white;
+width:80%;
+margin:auto;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+section p{
+background:#f9f6ff;
+padding:12px;
+border-radius:10px;
+margin:10px auto;
+width:60%;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+transition:0.2s;
+}
+
+section p:hover{
+transform:scale(1.03);
+background:#efe7ff;
+}
+
+footer{
+background:#6a0dad;
+color:white;
+padding:10px;
+margin-top:20px;
+font-size:14px;
+letter-spacing:1px;
+}
+
+#website{
+display:none;
+}
+
+#captchaBox{
+margin-top:150px;
+background:white;
+width:350px;
+margin-left:auto;
+margin-right:auto;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+input{
+padding:10px;
+font-size:16px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+background:#6a0dad;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:25px;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#8a2be2;
+}
+</style>
+
+<script>
+
+let num1=Math.floor(Math.random()*10)+1;
+let num2=Math.floor(Math.random()*10)+1;
+
+function generateCaptcha(){
+document.getElementById("question").innerHTML=
+"Verify you are human: "+num1+" + "+num2;
+}
+
+function checkCaptcha(){
+
+let answer=document.getElementById("captchaInput").value;
+
+if(answer==num1+num2){
+
+document.getElementById("captchaBox").style.display="none";
+document.getElementById("website").style.display="block";
+
+}
+
+else{
+alert("Wrong answer. Try again.");
+}
+
+}
+
+</script>
+
+</head>
+
+<body onload="generateCaptcha()">
+
+<div id="captchaBox">
+
+<h2>Human Verification</h2>
+
+<p id="question"></p>
+
+<input type="text" id="captchaInput" placeholder="Enter answer">
+
+<br><br>
+
+<button onclick="checkCaptcha()">Enter Website</button>
+
+</div>
+
+
+<div id="website">
+
+<header>
+
+<h1>NextPick</h1>
+<p>Your reselling shop for clothes, food, and supplies</p>
+
+</header>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#">Products</a>
+<a href="#">Contact</a>
+
+</nav>
+
+<section>
+
+<h2>Welcome</h2>
+
+<p>Welcome to NextPick! We offer a variety of clothes, foods, and daily supplies. Browse our shop and discover great deals.</p>
+
+<h3>Products</h3>
+
+<p>Clothes - Price: ₱100-₱300</p>
+<p>Food - Price: ₱30-₱100</p>
+<p>Supplies - Price: ₱20-₱100</p>
+
+</section>
+
+<footer>
+
+<p>Created by Quiel Eriss Barlis</p>
+
+</footer>
+
+</div>
+
+</body>
+  </html>
